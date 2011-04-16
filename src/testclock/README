@@ -1,0 +1,69 @@
+A.	Name: Abhishikta Madireddy
+               Date: 04.16.2011.
+               Course: CSc 2310 Principles of Computer Programming.
+               Project: Program TestClock to test the behavior of Clock class.
+
+B.	Description of the program
+•	Program to test the behavior of a clock.
+	A clock class is written for performing various operations.
+        The variables are declared as hours, minutes and seconds.
+        Three constructors and a default constructor are made.
+        Various operations on the behaviour of the clock are included as instance methods
+        like reset, calibrate,set time, toggleclock etc.
+        The time is returned as string using toString() method.
+        To test the behaviour of this clock class, a main TestClock is made
+        which asks the user for the input and prints out the output.
+        The switch case is used to allow the user to select the desired option.
+        A try catch exception prints out when an incorrect input is given.
+C.	Usage of program:
+•	The main TestClock is run which prints out a variety of options for theuser to select.
+        As per the option selected, the appropriate output is printed out.
+D.	Examples:
+Welcome to the clock testing program:
+Commands :
+--------
+a=advance(increase time by one second)
+c=calibrate(set to current time)
+q=quit
+r=reset(set hours, minutes,and second to zero)
+s=set(allow user to set time)
+t=toggle(switch from 24-hour clock to 12-hour clock,or vice-versa)
+
+The time is now 00:00:00
+Enter command(a,c,q,r,s,or t):c
+
+The time is now 01:39:49p.m
+Enter command(a,c,q,r,s,or t):a
+
+The time is now 01:39:50p.m
+Enter command(a,c,q,r,s,or t):r
+
+The time is now 00:00:00
+Enter command(a,c,q,r,s,or t):s
+Enter hours: 21
+Enter minutes: 9
+Enter seconds: 5
+
+The time is now 21:09:05
+Enter command(a,c,q,r,s,or t):t
+
+The time is now 09:09:05p.m
+Enter command(a,c,q,r,s,or t):
+
+
+Enter command(a,c,q,r,s,or t):s
+Enter hours: 25
+Input must be between 0 and 23; please try again.
+Enter hours: -1
+Input must be between 0 and 23; please try again.
+Enter hours: fool
+Input was not an integer, try again
+The time is now 09:09:05p.m
+Enter command(a,c,q,r,s,or t):q
+BUILD SUCCESSFUL (total time: 5 minutes 11 seconds)
+
+
+
+
+
+
