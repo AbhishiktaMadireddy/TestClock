@@ -2,50 +2,85 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
+//Author:        Abhishikta Madireddy
+//Date Written:  04.21.2011.
+//Course:        CSc 2310 Principles of Computer Programming.
+//Project:       Program TestClock to test the behavior of Clock class
 package testclock;
 
 
-import java.util.*;
+import java.util.Calendar;
   public class Clock {
-  // Declare variables here
-      private int hr;
-      private int min;
-      private int sec;
+  // The variables are declared here
+      private int hr;//Hours of Clock
+      private int min;//Minutes of Clock
+      private int sec;//Seconds of Clock
       String s = "";
-
+  //Constructors
+      //////////////////////////////////////////////////
+      //NAME:       Clock
+      //BEHAVIOUR:  Constructs a clock with the specified
+      //            hr,min and sec.
+      //PARAMETERS: hr = hours , min = minutes
+      //            sec = seconds
+      ///////////////////////////////////////////////////
   public Clock(int hours, int minutes, int seconds) {
       this.hr = hours;
       this.min = minutes;
       this.sec = seconds;
   }
-
+      //////////////////////////////////////////////////
+      //NAME:       Clock
+      //BEHAVIOUR:  Constructs a clock with the specified
+      //            hr and min
+      //PARAMETERS: hr = hours , min = minutes
+      ///////////////////////////////////////////////////
   public Clock(int hours, int minutes) {
       this.hr = hours;
       this.min = minutes;
       sec = 0;
   }
-
+      //////////////////////////////////////////////////
+      //NAME:       Clock
+      //BEHAVIOUR:  Constructs a clock with the specified
+      //            hours
+      //PARAMETERS: hr = hours
+      ///////////////////////////////////////////////////
   public Clock(int hours) {
      this.hr = hours;
      this.min = 0;
      sec = 0;
   }
-
+     //Default Constructor
+     //////////////////////////////////////////////////
+     //NAME:       Clock
+     //BEHAVIOUR:  Constructs a clock
+     //PARAMETERS: None
+     ///////////////////////////////////////////////////
   public Clock() {
       hr = 0;
       min = 0;
       sec = 0;
   }
-
+   //////////////////////////////////////////////////
+   //NAME:       advanceSeconds
+   //BEHAVIOUR:  Increases time by one second
+   //PARAMETERS: None
+   //RETURNS:    Nothing
+   ///////////////////////////////////////////////////
   public void advanceSeconds() {
-    // Increases time by one second
-   sec++;
+    sec++;
    if (sec > 59){
        sec = 0;
       advanceMinute();
    }
   }
+  //////////////////////////////////////////////////
+  //NAME:       advanceMinutes
+  //BEHAVIOUR:  Increases time by one minute
+  //PARAMETERS: None
+  //RETURNS:    Nothing
+  ///////////////////////////////////////////////////
   private void advanceMinute(){
       //Increases time by one minute
    min++;
@@ -54,6 +89,12 @@ import java.util.*;
        advanceHours();
    }
   }
+  //////////////////////////////////////////////////
+  //NAME:       advanceHours
+  //BEHAVIOUR:  Increases time by one hour
+  //PARAMETERS: None
+  //RETURNS:    Nothing
+  ///////////////////////////////////////////////////
   private void advanceHours(){
       //Increments hours
       hr++;
@@ -62,21 +103,28 @@ import java.util.*;
       }
   }
   public static int currentsec(){
+      //Gets current sec from current calendar
       Calendar now = Calendar.getInstance();
       return now.get(Calendar.SECOND);
   }
   public static int currentmin(){
+      //Gets current min from current calendar
       Calendar now = Calendar.getInstance();
       return now.get(Calendar.MINUTE);
   }
   public static int currenthr(){
+      //Gets current hr from current calendar
       Calendar now = Calendar.getInstance();
       return now.get(Calendar.HOUR);
   }
-
+  //////////////////////////////////////////////////
+  //NAME:       calibrate
+  //BEHAVIOUR:  sets the time to current time
+  //PARAMETERS: None
+  //RETURNS:    Nothing
+  ///////////////////////////////////////////////////
   public void calibrate() {
-    // Sets clock to current time
-  Calendar cal=new GregorianCalendar();
+   Calendar cal= Calendar.getInstance();
       hr = currenthr();
       min = currentmin();
       sec = currentsec();
@@ -85,39 +133,80 @@ import java.util.*;
       else
           s = "p.m";
   }
-
-  public void reset() {
-    // Resets time to 00:00:00
+  //////////////////////////////////////////////////
+  //NAME:       reset
+  //BEHAVIOUR:  Resets time to 00:00:00
+  //PARAMETERS: None
+  //RETURNS:    Nothing
+  ///////////////////////////////////////////////////
+  public void reset() { 
     hr = 0;
     min = 0;
     sec = 0;
-    s="";
-    
+        
   }
-
+  //////////////////////////////////////////////////
+  //NAME:       set
+  //BEHAVIOUR:  sets time according to user parameters
+  //PARAMETERS: hours,minutes,seconds
+  //RETURNS:    Nothing
+  ///////////////////////////////////////////////////
   public void set(int hours, int minutes, int seconds) {
-    // Sets time according to values of parameters
-   this.hr = hours;
-   this.min = minutes;
-   this.sec = seconds;
+    
+      sethours(hours);
+      setminutes(minutes);
+      setseconds(seconds);
   }
+  //////////////////////////////////////////////////
+  //NAME:       getHours
+  //BEHAVIOUR:  Returns the hours
+  //PARAMETERS: None
+  //RETURNS:    The hours of Clock
+  ///////////////////////////////////////////////////
   public int gethours(){
       return hr;
   }
+  //////////////////////////////////////////////////
+  //NAME:       getMinutes
+  //BEHAVIOUR:  Returns the minutes
+  //PARAMETERS: None
+  //RETURNS:    The minutes of Clock
+  ///////////////////////////////////////////////////
   public int getminutes(){
       return min;
   }
+  //////////////////////////////////////////////////
+  //NAME:       getSeconds
+  //BEHAVIOUR:  Returns the second
+  //PARAMETERS: None
+  //RETURNS:    The seconds of Clock
+  ///////////////////////////////////////////////////
   public int getseconds(){
       return sec;
   }
-  public void sethours(int hours){
-      hours = hr;
+  //Returns boolean value of hours
+  public boolean sethours(int hours){
+    if (hours >= 0 && hours < 24) {
+        hr = hours;
+        return true;
+      }
+        return false;
   }
-  public void setminutes(int minutes){
-      minutes = min;
+  //Returns boolean value of minutes
+  public boolean setminutes(int minutes){
+    if(minutes >= 0 && minutes < 60){
+        min = minutes;
+        return true;
+      }
+        return false;
   }
-  public void setseconds(int seconds){
-      seconds = sec;
+  //Returns boolean value of seconds
+  public boolean setseconds(int seconds){
+    if (seconds >= 0 && seconds < 60){
+        sec = seconds;
+        return true;
+      }
+        return false;
   }
 
   public void toggleClockMode() {

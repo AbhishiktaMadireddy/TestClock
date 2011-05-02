@@ -1,7 +1,7 @@
-A.	Name: Abhishikta Madireddy
-               Date: 04.16.2011.
-               Course: CSc 2310 Principles of Computer Programming.
-               Project: Program TestClock to test the behavior of Clock class.
+A.	Author:        Abhishikta Madireddy
+        Date Written:  04.21.2011.
+        Course:        CSc 2310 Principles of Computer Programming.
+        Project:       Program TestClock to test the behavior of Clock class.
 
 B.	Description of the program
 •	Program to test the behavior of a clock.
@@ -11,14 +11,16 @@ B.	Description of the program
         Various operations on the behaviour of the clock are included as instance methods
         like reset, calibrate,set time, toggleclock etc.
         The time is returned as string using toString() method.
+        Helper methods get the current time from the calendar class
         To test the behaviour of this clock class, a main TestClock is made
         which asks the user for the input and prints out the output.
         The switch case is used to allow the user to select the desired option.
         A try catch exception prints out when an incorrect input is given.
 C.	Usage of program:
-•	The main TestClock is run which prints out a variety of options for theuser to select.
+•	The main TestClock is run which prints out a variety of options for the user to select.
         As per the option selected, the appropriate output is printed out.
 D.	Examples:
+run:
 Welcome to the clock testing program:
 Commands :
 --------
@@ -32,38 +34,42 @@ t=toggle(switch from 24-hour clock to 12-hour clock,or vice-versa)
 The time is now 00:00:00
 Enter command(a,c,q,r,s,or t):c
 
-The time is now 01:39:49p.m
+The time is now 04:32:47p.m
 Enter command(a,c,q,r,s,or t):a
 
-The time is now 01:39:50p.m
+The time is now 04:32:48p.m
+Enter command(a,c,q,r,s,or t):t
+
+The time is now 16:32:48
 Enter command(a,c,q,r,s,or t):r
 
 The time is now 00:00:00
 Enter command(a,c,q,r,s,or t):s
-Enter hours: 21
-Enter minutes: 9
-Enter seconds: 5
+Enter hours: 22
+Enter minutes: 32
+Enter seconds: 33
 
-The time is now 21:09:05
+The time is now 22:32:33
+Enter command(a,c,q,r,s,or t):s
+Enter hours: 45
+Input must be between 0 and 23; please try again.
+Enter hours: fff
+Input must be integer; please try again.
+Enter hours: 2
+Enter minutes: 78
+Input must be between 0 and 59; please try again.
+Enter minutes: hhh
+Input must be integer; please try again.
+Enter minutes: 3
+Enter seconds: 78
+Input must be between 0 and 59; please try again.
+Enter seconds: hhh
+Input must be integer; please try again.
+Enter seconds: 34
+
+The time is now 02:03:34
 Enter command(a,c,q,r,s,or t):t
 
-The time is now 09:09:05p.m
-Enter command(a,c,q,r,s,or t):
-
-
-Enter command(a,c,q,r,s,or t):s
-Enter hours: 25
-Input must be between 0 and 23; please try again.
-Enter hours: -1
-Input must be between 0 and 23; please try again.
-Enter hours: fool
-Input was not an integer, try again
-The time is now 09:09:05p.m
+The time is now 02:03:34a.m
 Enter command(a,c,q,r,s,or t):q
-BUILD SUCCESSFUL (total time: 5 minutes 11 seconds)
-
-
-
-
-
-
+BUILD SUCCESSFUL (total time: 3 minutes 49 seconds
